@@ -6,28 +6,27 @@ interface Skill {
 }
 
 const skills: Skill[] = [
-  { name: "PHP", proficiency: 85 },
-  { name: "Laravel", proficiency: 80 },
-  { name: "Redis", proficiency: 90 },
   { name: "HTML", proficiency: 95 },
-  { name: "CSS", proficiency: 85 },
-  { name: "Javascript", proficiency: 90 },
   { name: "GIT", proficiency: 95 },
-  { name: "Jira", proficiency: 80 },
-  { name: "MariaDB", proficiency: 70 },
-  { name: "Bootstrap", proficiency: 90 },
+  { name: "Javascript", proficiency: 90 },
   { name: "jQuery", proficiency: 90 },
-  { name: "Postman", proficiency: 75 },
-  { name: "MongoDB", proficiency: 80 },
-  { name: "JQuery", proficiency: 90 },
-  { name: "ReactJS", proficiency: 80 },
+  { name: "Bootstrap", proficiency: 90 },
+  { name: "Redis", proficiency: 90 },
+  { name: "PHP", proficiency: 85 },
+  { name: "CSS", proficiency: 85 },
   { name: "TFS", proficiency: 85 },
+  { name: "Laravel", proficiency: 80 },
+  { name: "ReactJS", proficiency: 80 },
+  { name: "MongoDB", proficiency: 80 },
+  { name: "Jira", proficiency: 80 },
+  { name: "Postman", proficiency: 75 },
+  { name: "MariaDB", proficiency: 70 },
 ];
 
 const Skills: React.FC = () => {
   return (
     <section id="skills" className="py-20 bg-gray-100 text-gray-800">
-      <div className="container mx-auto">
+      <div className="container mx-auto px-4">
         <h2 className="text-3xl font-bold text-center mb-12">Skills</h2>
         <div className="space-y-8">
           {skills.map((skill, index) => (

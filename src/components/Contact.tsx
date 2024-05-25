@@ -10,7 +10,7 @@ import resume from "../assets/Resume-Roger-Louisse-Eustaquio.pdf";
 const Contact: React.FC = () => {
   return (
     <section id="contact" className="py-20 bg-gray-100 text-gray-800">
-      <div className="container mx-auto">
+      <div className="container mx-auto px-4">
         <h2 className="text-3xl font-bold text-center mb-12">Contact</h2>
         <div className="max-w-lg mx-auto bg-white p-8 rounded shadow-md">
           <div className="mb-4">
@@ -18,7 +18,10 @@ const Contact: React.FC = () => {
             <p>
               <DevicePhoneMobileIcon className="w-6 h-6 inline" />
               Phone:{" "}
-              <a href="tel:+639943912870" className="text-blue-600">
+              <a
+                href="tel:+639943912870"
+                className="text-blue-600 focus:outline focus:outline-2 focus:outline-offset-2 focus:outline-black focus:rounded-sm"
+              >
                 <span className="sr-only">Phone: </span>
                 +63 994 391 2870
               </a>
@@ -28,7 +31,7 @@ const Contact: React.FC = () => {
               Email:{" "}
               <a
                 href="mailto:louisseeustaquio@gmail.com"
-                className="text-blue-600"
+                className="text-blue-600 focus:outline focus:outline-2 focus:outline-offset-2 focus:outline-black focus:rounded-sm"
               >
                 <span className="sr-only">Email: </span>
                 louisseeustaquio@gmail.com
@@ -41,7 +44,7 @@ const Contact: React.FC = () => {
                 href={resume}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-blue-600"
+                className="text-blue-600 focus:outline focus:outline-2 focus:outline-offset-2 focus:outline-black focus:rounded-sm"
               >
                 <span className="sr-only">Resume: </span>
                 Download Resume

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import customer_service_for_people_with_disabilities from "../assets/certificates/customer_service_for_people_with_disabilities.webp";
 import IAAP_WAS_certification_preparation_curriculum from "../assets/certificates/IAAP_WAS_certification_preparation_curriculum.webp";
 import web_accessibility_bootcamp_curriculum from "../assets/certificates/web_accessibility_bootcamp_curriculum.webp";
@@ -15,7 +15,7 @@ type Certificate = {
 
 const certificates: Certificate[] = [
   {
-    title: "Certificate of Completion",
+    title: "Web Accessibility Bootcamp Curriculum",
     description:
       "Roger Louisse Eustaquio has completed the courses in the Web Accessibility Bootcamp Curriculum",
     issued_by: "Deque University",
@@ -25,7 +25,7 @@ const certificates: Certificate[] = [
       "image of certificate of completion in the web accessibility bootcamp curriculum",
   },
   {
-    title: "Certificate of Completion",
+    title: "Web Accessibility Curriculum",
     description:
       "Roger Louisse Eustaquio has completed the courses in the Web Accessibility Curriculum",
     issued_by: "Deque University",
@@ -35,7 +35,7 @@ const certificates: Certificate[] = [
       "image of certificate of completion in the web accessibility curriculum",
   },
   {
-    title: "Certificate of Completion",
+    title: "IAAP WAS Certification Preparation Curriculum",
     description:
       "Roger Louisse Eustaquio has completed the courses in the IAAP WAS Certification Preparation Curriculum",
     issued_by: "Deque University",
@@ -45,7 +45,7 @@ const certificates: Certificate[] = [
       "image of certificate of completion in the IAAP WAS certification preparation curriculumm",
   },
   {
-    title: "Certificate of Completion",
+    title: "Customer Service for People with Disabilities Curriculum",
     description:
       "Roger Louisse Eustaquio has completed the courses in the Customer Service for People with Disabilities Curriculum",
     issued_by: "Deque University",
@@ -60,7 +60,9 @@ const Certificates: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [currentCertificate, setcurrentCertificate] =
     useState<Certificate | null>(null);
-
+  const triggerDiv = useRef<HTMLDivElement | null>(null);
+  const firstFocusable = useRef<HTMLButtonElement | null>(null);
+  const lastFocusable = useRef<HTMLButtonElement | null>(null);
   const openModal = (certificate: Certificate) => {
     setcurrentCertificate(certificate);
     setIsOpen(true);
@@ -69,25 +71,36 @@ const Certificates: React.FC = () => {
   const closeModal = () => {
     setcurrentCertificate(null);
     setIsOpen(false);
+    triggerDiv.current?.focus();
   };
 
   return (
     <section id="certificates" className="py-20 bg-gray-100 text-gray-800">
-      <div className="container mx-auto">
+      <div className="container mx-auto  px-4">
         <h2 className="text-3xl font-bold text-center mb-12">Certificates</h2>
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 md:gap-4">
           {certificates.map((certificate, index) => (
             <div
               key={index}
               tabIndex={0}
-              className="bg-white p-4 rounded shadow-md cursor-pointer"
+              className="bg-white p-4 rounded shadow-md cursor-pointer focus:outline focus:outline-2 focus:outline-offset-2 focus:outline-black"
+              ref={
+                isOpen && certificate.title === currentCertificate?.title
+                  ? triggerDiv
+                  : undefined
+              }
               onClick={() => openModal(certificate)}
               onKeyDown={(event) => {
-                if (event.key !== "Enter") return;
+                if (!(event.key === "Enter" || event.key === " ")) return;
+                event.preventDefault();
                 openModal(certificate);
               }}
             >
-              <img src={certificate.imageUrl} alt={certificate.alt_text} />
+              <img
+                src={certificate.imageUrl}
+                alt={certificate.alt_text}
+                className="mb-2"
+              />
               <h3 className="text-xl font-bold mb-2">{certificate.title}</h3>
               <p>{certificate.description}</p>
               <p className="text-gray-600 mt-2">
@@ -105,6 +118,12 @@ const Certificates: React.FC = () => {
           onClick={closeModal}
         >
           <div
+            tabIndex={0}
+            onFocus={() => {
+              lastFocusable.current?.focus();
+            }}
+          ></div>
+          <div
             role="dialog"
             aria-labelledby=""
             aria-modal={isOpen}
@@ -116,12 +135,23 @@ const Certificates: React.FC = () => {
               className="w-full h-auto"
             />
             <button
-              className="mt-4 px-4 py-2 bg-blue-500 text-white rounded"
+              autoFocus
+              ref={(el: HTMLButtonElement) => {
+                firstFocusable.current = el;
+                lastFocusable.current = el;
+              }}
+              className="mt-4 px-4 py-2 bg-blue-500 text-white rounded focus:outline focus:outline-2 focus:outline-offset-2 focus:outline-black"
               onClick={closeModal}
             >
               Close
             </button>
           </div>
+          <div
+            tabIndex={0}
+            onFocus={() => {
+              firstFocusable.current?.focus();
+            }}
+          ></div>
         </div>
       )}
     </section>
