@@ -9,7 +9,7 @@ import Footer from "./components/Footer";
 
 const App: React.FC = () => {
   return (
-    <div>
+    <main>
       <Header />
       <Welcome />
       <Skills />
@@ -17,7 +17,7 @@ const App: React.FC = () => {
       <Certificates />
       <Contact />
       <Footer />
-    </div>
+    </main>
   );
 };
 

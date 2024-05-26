@@ -2,11 +2,18 @@ import React from "react";
 
 const Welcome: React.FC = () => {
   return (
-    <section id="welcome" className="py-20 bg-gray-100 text-gray-800">
+    <section
+      className="py-20 bg-gray-100 text-gray-800"
+      aria-labelledby="welcome"
+    >
       <div className="container mx-auto px-4">
-        <h2 className="text-4xl font-bold text-center mb-4">
+        <h1
+          className="text-4xl font-bold text-center mb-4"
+          id="welcome"
+          tabIndex={-1}
+        >
           Welcome to My Portfolio!
-        </h2>
+        </h1>
         <p className="text-lg text-center mb-8">
           Welcome to my portfolio! I'm Roger Louisse Eustaquio, a dedicated Web
           Developer specializing in accessible and responsive digital
