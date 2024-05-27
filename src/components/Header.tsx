@@ -39,7 +39,7 @@ const Header: React.FC = () => {
 
   const linksUl = useMemo(
     () => (
-      <ul className="hidden md:flex md:justify-between ">
+      <ul className="md:flex md:justify-between ">
         {links.map((link, index) => (
           <li key={index} className="my-1 mx-4">
             <a
