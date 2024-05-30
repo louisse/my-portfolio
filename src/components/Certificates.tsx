@@ -53,7 +53,7 @@ const Certificates: React.FC = () => {
               <img
                 src={certificate.imageUrl}
                 alt={certificate.alt_text}
-                className="mb-2"
+                className="mb-2 aspect-[842/595]"
               />
               <h3 className="text-xl font-bold mb-2">{certificate.title}</h3>
               <p>{certificate.description}</p>

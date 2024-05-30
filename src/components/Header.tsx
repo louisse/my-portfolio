@@ -39,7 +39,7 @@ const Header: React.FC = () => {
 
   const linksUl = useMemo(
     () => (
-      <ul className="md:flex md:justify-between ">
+      <ul id="nav-menu" className="md:flex md:justify-between ">
         {links.map((link, index) => (
           <li key={index} className="my-1 mx-4">
             <a
@@ -71,7 +71,11 @@ const Header: React.FC = () => {
           <button
             onClick={toggleMenu}
             className="block md:hidden text-white focus:outline focus:outline-2 focus:outline-offset-2 focus:outline-white focus:rounded-sm"
+            aria-expanded={!isMobile ? undefined : isOpen ? "true" : "false"}
           >
+            <span className="sr-only">
+              {isOpen ? "close" : "open"} the menu
+            </span>
             <Bars3Icon className="w-6 h-6 inline" />
           </button>
         </div>
