@@ -6,8 +6,10 @@ import Experience from "./components/Experience";
 import Certificates from "./components/Certificates";
 import Contact from "./components/Contact";
 import Footer from "./components/Footer";
+import { useNeverGonnaGiveYouUp } from "./hooks/useNeverGonnaGiveYouUp";
 
 const App: React.FC = () => {
+  useNeverGonnaGiveYouUp();
   return (
     <main>
       <Header />
