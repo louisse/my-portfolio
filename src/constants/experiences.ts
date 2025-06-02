@@ -4,8 +4,13 @@ type Project = {
 };
 
 type Experience = {
-  company: "Quantrics Enterprises Inc." | "Cafe24 Philippines" | "Save22";
+  company:
+    | "Ascendion"
+    | "Quantrics Enterprises Inc."
+    | "Cafe24 Philippines"
+    | "Save22";
   role:
+    | "Full Stack Engineer"
     | "Web Developer (Dev 3)"
     | "Web Developer (L2)"
     | "Web Developer (L1)"
@@ -15,6 +20,28 @@ type Experience = {
 };
 
 export const experiences: Experience[] = [
+  {
+    company: "Ascendion",
+    role: "Full Stack Engineer",
+    period: "Jul 2024 - Present",
+    projects: [
+      {
+        title: "Custom API",
+        description:
+          "Designed and developed a custom API plugin for the ProcessMaker platform, enabling seamless integration with a third-party service provider.",
+      },
+      {
+        title: "Enhancement - Loan Process",
+        description:
+          "Enhanced and optimized existing loan processing workflows based on evolving business requirements, improving operational efficiency and compliance.",
+      },
+      {
+        title: "Initiative - Developer Tools",
+        description:
+          "Built internal developer tools to streamline development workflows and enhance the overall developer experience.",
+      },
+    ],
+  },
   {
     company: "Quantrics Enterprises Inc.",
     role: "Web Developer (Dev 3)",

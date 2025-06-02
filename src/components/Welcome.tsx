@@ -15,12 +15,13 @@ const Welcome: React.FC = () => {
           Welcome to My Portfolio!
         </h1>
         <p className="text-lg text-center mb-8">
-          Welcome to my portfolio! I'm Roger Louisse Eustaquio, a dedicated Web
-          Developer specializing in accessible and responsive digital
-          experiences. My work focuses on creating visually appealing,
-          user-friendly websites for all, including those with disabilities.
-          Explore my projects to see my skills in front-end and back-end
-          development and my commitment to web accessibility.
+          Welcome to my portfolio! I'm Roger Louisse Eustaquio, an experienced
+          Full Stack Web Developer specializing in building scalable web
+          applications and automating business processes. My work focuses on
+          creating visually appealing, user-friendly websites for all, including
+          those with disabilities. Explore my projects to see my skills in
+          front-end and back-end development and my commitment to web
+          accessibility.
         </p>
         <p className="text-lg text-center">
           Feel free to explore my work, learn more about me, and reach out if

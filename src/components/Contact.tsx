@@ -5,7 +5,7 @@ import {
   DocumentTextIcon,
   AtSymbolIcon,
 } from "@heroicons/react/24/solid";
-import resume from "../assets/Resume-Roger-Louisse-Eustaquio.pdf";
+import resume from "../assets/Full Stack Engineer - Eustaquio, Roger Louisse.pdf";
 
 const Contact: React.FC = () => {
   return (
